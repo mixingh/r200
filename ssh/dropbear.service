@@ -1,0 +1,13 @@
+
+[Unit]
+Description=Dropbear SSH server daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/sbin/dropbear
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
